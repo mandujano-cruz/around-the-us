@@ -1,0 +1,409 @@
+@media screen and (max-width: 1023px) {
+  .header{
+    margin: 28px auto 42px;
+    width: 100%;
+  }
+
+  .header__image{
+    width: 126px;
+    height: 24px;
+    padding: 0 0 32px 0;
+  }
+
+  .profile{
+    margin: auto;
+    width: 100%;
+    display: flex;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .profile__container{
+    width: 120px;
+    height: 120px;
+    border-radius: 100%;
+    margin: auto;
+    background-color: #C4C4C4;
+  }
+
+  .profile__image{
+    margin: auto;
+  }
+  
+  .profile__image-edit {
+    position: absolute;
+    width: 20%;
+    height: 20%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+  }
+
+  .profile__info{
+    margin: 30px auto 36px;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, auto);
+    grid-template-areas: 
+      "name button"
+      "about about";
+    gap: 14px 10px;
+  }
+  
+  .profile__name{
+    margin: 0;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 26.63px;    
+    grid-area: name;
+  }
+  
+  .profile__about-me{
+    margin: 0;
+    font-size: 14px;
+    line-height: 16.94px;    
+    grid-area: about;
+  }
+  
+  .profile__edit-button{
+    width: 18px;
+    height: 18px;
+    align-self: flex-end;
+    background-color: #000;
+    background-image: url(../images/edit.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid #FFF;
+    grid-area: button;
+    opacity: 1;
+  }
+  
+  .profile__edit-button:hover{
+    width: 18px;
+    height: 18px;
+    align-self: flex-end;
+    background-color: #000;
+    background-image: url(../images/edit.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid #FFF;
+    grid-area: button;
+    opacity: .6;
+  }
+  
+  .profile__add-image{
+    margin: auto;
+    width: 282px;
+    height: 50px;
+    background-color: #000;
+    background-image: url(../images/plus.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid #FFF;
+    opacity: 1;
+  }
+  
+  .profile__add-image:hover{
+    margin: auto;
+    width: 282px;
+    height: 50px;
+    background-color: #000;
+    background-image: url(../images/plus.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid #FFF;
+    opacity: .6;
+  }
+
+  .elements{
+    justify-content: center;
+    margin: 36px auto 50px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 282px);
+    gap: 20px;
+  }
+
+  .card__list{
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer{
+    width: 85%;
+    margin: 0 auto 36px;
+    color: #545454;
+  }
+  
+  .popup__close{
+    position: absolute;
+    top: -45px;
+    right: 0;
+    width: 26px;
+    height: 26px;
+    background-image: url(../images/close.png);
+    background-color: #00FF0000;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 0;
+    opacity: 1;
+  }
+
+  .popup__close:hover{
+    position: absolute;
+    top: -45px;
+    right: 0;
+    width: 26px;
+    height: 26px;
+    background-image: url(../images/close.png);
+    background-color: #00FF0000;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 0;
+    opacity: .6;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .header{
+    margin: 28px auto 42px;
+    width: 100%;
+  }
+
+  .header__image{
+    width: 126px;
+    height: 24px;
+    padding: 0 0 32px 0;
+  }
+
+  .header__container {
+    margin: 0 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+  }
+
+  .header__info {
+    display: none;
+  }
+
+  .header__menu {
+    display: block;
+  }
+
+  .header__info-open {
+    display: flex;
+    background-color: transparent;
+    margin: 12px auto 40px;
+  }
+
+  .profile{
+    margin: auto;
+    width: 100%;
+    display: flex;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .profile__image{
+    width: 120px;
+    height: 120px;
+    border-radius: 100%;
+    margin: auto;
+    background-color: #C4C4C4;
+  }
+  
+  .profile__info{
+    margin: 30px auto 36px;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, auto);
+    grid-template-areas: 
+      "name button"
+      "about about";
+    gap: 14px 10px;
+  }
+  
+  .profile__name{
+    margin: 0;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 26.63px;    
+    grid-area: name;
+  }
+  
+  .profile__about-me{
+    margin: 0;
+    font-size: 14px;
+    line-height: 16.94px;    
+    grid-area: about;
+  }
+  
+  .profile__edit-button{
+    width: 18px;
+    height: 18px;
+    align-self: flex-end;
+    background-color: #000;
+    background-image: url(../images/edit.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid #FFF;
+    grid-area: button;
+    opacity: 1;
+  }
+  
+  .profile__edit-button:hover{
+    width: 18px;
+    height: 18px;
+    align-self: flex-end;
+    background-color: #000;
+    background-image: url(../images/edit.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid #FFF;
+    grid-area: button;
+    opacity: .6;
+  }
+  
+  .profile__add-image{
+    margin: auto;
+    width: 282px;
+    height: 50px;
+    background-color: #000;
+    background-image: url(../images/plus.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid #FFF;
+    opacity: 1;
+  }
+  
+  .profile__add-image:hover{
+    margin: auto;
+    width: 282px;
+    height: 50px;
+    background-color: #000;
+    background-image: url(../images/plus.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid #FFF;
+    opacity: .6;
+  }
+
+  .elements{
+    justify-content: center;
+    margin: 36px auto 50px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 282px;
+    gap: 20px;
+  }
+
+  .card__list{
+    grid-template-columns: 1fr;
+  }
+
+  .footer{
+    width: 85%;
+    margin: 0 auto 36px;
+    color: #545454;
+  }
+
+  .popup{
+    width: 282px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    background-color: #FFF;
+    border-radius: 10px;
+  }
+  
+  .popup__close{
+    position: absolute;
+    top: -45px;
+    right: 0;
+    width: 26px;
+    height: 26px;
+    background-image: url(../images/close.png);
+    background-color: #00FF0000;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 0;
+  }
+  
+  .popup__title{
+    margin: 25px 22px 46px;
+    color: #000;
+    font-size: 18px;
+    font-weight: 900;
+    line-height: 21.78px;
+    text-align: start;
+    
+  }
+  
+  .popup__container{
+    max-width: 238px;
+    margin: 0 auto 25px;
+  }
+  
+  .popup__input{
+    margin: 30px auto 0;
+    width: 100%;
+    height: 27.34px;
+    border: 0;
+    border-bottom: 1px solid #C4C4C4;
+    font-size: 14px;
+    line-height: 16.94px;
+    
+  }
+  
+  .popup__input::-webkit-input-placeholder {
+    padding: 0 0 9px;
+    color: #C4C4C4;
+  }
+  
+  .popup__input::-moz-placeholder {
+    padding: 0 0 9px;
+    color: #C4C4C4;
+  }
+  
+  .popup__input::-ms-input-placeholder {
+    padding: 0 0 9px;
+    color: #C4C4C4;
+  }
+  
+  .popup__input::placeholder {
+    padding: 0 0 9px;
+    color: #C4C4C4;
+  }
+  
+  .popup__save-button{
+    margin-top: 60px;
+    width: 100%;
+    height: 46px;
+    color: #FFF;
+    background-color: #000;
+    border: 1px solid #C4C4C4;
+    font-size: 18px;
+    line-height: 21.78px;
+    opacity: 1;
+  }
+
+  .popup__save-button:hover{
+    margin-top: 60px;
+    width: 100%;
+    height: 46px;
+    color: #C4C4C4;
+    background-color: #000;
+    border: 1px solid #C4C4C4;
+    font-size: 18px;
+    line-height: 21.78px;
+    opacity: .6;
+  }
+}

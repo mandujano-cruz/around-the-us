@@ -1,0 +1,121 @@
+.profile{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 3fr 2fr;
+  grid-template-rows: 1fr;
+  justify-items: stretch;
+}
+
+.profile__container {
+  position: relative;
+  display: inline-block;
+  width: 120px;
+  height: 120px;
+}
+
+.profile__image{
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  margin-right: 30px;
+  object-fit: cover;
+}
+
+.profile__container:hover .profile__image{
+  opacity: 0.2;
+}
+
+.profile__container:hover .profile__image-edit{
+  opacity: 1;
+}
+
+.profile__image-edit {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
+.profile__info{
+  margin: auto auto auto 0;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(2, auto);
+  grid-template-areas: 
+    "name button"
+    "about .";
+  gap: 16px 18px;
+}
+
+.profile__name{
+  margin: 0;
+  font-size: 42px;
+  font-weight: 500;
+  line-height: 48px;
+  grid-area: name;
+}
+
+.profile__about-me{
+  margin: 0;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21.78px;
+  grid-area: about;
+}
+
+.profile__edit-button{
+  width: 24px;
+  height: 24px;
+  align-self: flex-end;
+  background-color: #000;
+  background-image: url(../images/edit.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 1px solid #FFF;
+  grid-area: button;
+  opacity: 1;
+}
+
+.profile__edit-button:hover{
+  width: 24px;
+  height: 24px;
+  align-self: flex-end;
+  background-color: #000;
+  background-image: url(../images/edit.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 1px solid #FFF;
+  grid-area: button;
+  opacity: .6;
+  cursor: pointer;
+}
+
+.profile__add-image{
+  width: 150px;
+  height: 50px;
+  align-self: center;
+  justify-self: right;
+  background-color: #000;
+  background-image: url(../images/plus.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 1px solid #FFF;
+  opacity: 1;
+}
+
+.profile__add-image:hover{
+  width: 150px;
+  height: 50px;
+  align-self: center;
+  justify-self: right;
+  background-color: #000;
+  background-image: url(../images/plus.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 1px solid #FFF;
+  opacity: .6;
+  cursor: pointer;
+}

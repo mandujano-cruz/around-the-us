@@ -1,0 +1,32 @@
+{
+  "name": "web_project_around_express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "npx eslint .",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mandujano-cruz/web_project_around_express.git"
+  },
+  "author": "Jesús Mandujano Cruz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mandujano-cruz/web_project_around_express/issues"
+  },
+  "homepage": "https://github.com/mandujano-cruz/web_project_around_express#readme",
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.31.0",
+    "nodemon": "^3.1.9"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "mongoose": "^8.14.1"
+  }
+}
