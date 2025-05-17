@@ -1,4 +1,6 @@
 const User = require('../models/user');
+const bcrypt = require('bcrypt');
+const SALT = 10;
 
 module.exports.getUsers = (req, res) => {
   User.find({})
@@ -37,7 +39,22 @@ module.exports.getUserById = (req, res) => {
 };
 
 module.exports.createUser = (req, res) => {
-  const { name, about, avatar } = req.body;
+  const { email, password, name, about, avatar } = req.body;
+
+  bcrypt.hash(password, SALT)
+    .then((hash) => {
+      return User.create({
+        email,
+        password: hash,
+        name,
+        about,
+        avatar,
+      });
+    })
+    .then((user) => res.status(201).send({ _id: user._id, email: user.email, name: user.name, about: user.about, avatar: user.avatar }))
+    .catch((err) => {
+      if (err.name === 'ValidationError') return res.status(400).send({message: 'Los datos proporcionados no son válidos.'})
+    })
 
   User.create({ name, about, avatar })
     .then(user => res.status(201).send(user))
