@@ -6,23 +6,23 @@ const urlRegex = /^https?:\/\/(www\.)?[\w\-._~:/?#[\]@!$&'()*+,;=%]+#?$/;
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true,
     minlength: 2,
-    maxlength: 30
+    maxlength: 30,
+    default: 'Jacques Cousteau',
   },
   about: {
     type: String,
-    required: true,
     minlength: 2,
-    maxlength: 30
+    maxlength: 30,
+    default: 'Explorador',
   },
   avatar: {
     type: String,
-    required: true,
     validate: {
       validator: (v) => urlRegex.test(v),
       message: 'El enlace del avatar no es válido'
-    }
+    },
+    default: 'https://pictures.s3.yandex.net/resources/avatar_1604080799.jpg',
   },
   email: {
     type: String,
