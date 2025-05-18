@@ -3,7 +3,7 @@ const {getUsers, getUserById, createUser, updateAvatar, updateProfile} = require
 
 router.get('/', getUsers);
 router.get('/:userId', getUserById);
-router.post('/', createUser);
+// router.post('/', createUser);
 router.patch('/me', updateProfile);
 router.patch('/me/avatar', updateAvatar);
 
