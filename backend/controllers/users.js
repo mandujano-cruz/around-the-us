@@ -1,6 +1,26 @@
 const User = require('../models/user');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 const SALT = 10;
+
+const { NODE_ENV, JWT_SECRET } = process.env;
+
+module.exports.login = (req, res) => {
+  const { email, password } = req.body;
+
+  User.findUserByCredentials(email, password)
+    .then((user) => {
+      const token = jwt.sign(
+        { _id: user._id },
+        NODE_ENV === 'production' ? JWT_SECRET : 'clave-secreta',
+        { expiresIn: '7d' },
+      );
+      res.send({ token });
+    })
+    .catch((err) => {
+      res.status(401).send({ message: err.message || 'No autorizado'});
+    });
+};
 
 module.exports.getUsers = (req, res) => {
   User.find({})
