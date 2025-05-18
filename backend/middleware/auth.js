@@ -6,7 +6,7 @@ module.exports = (req, res, next) => {
   const { authorization } = req.headers;
 
   if (!authorization || !authorization.startsWith('Bearer ')) {
-    return res.status(401).send({ message: 'Se requiere autorización' });
+    return res.status(403).send({ message: 'Se requiere autorización' });
   }
 
   const token = authorization.replace('Bearer ', '');
@@ -16,7 +16,7 @@ module.exports = (req, res, next) => {
   try {
     payload = jwt.verify(token, NODE_ENV === 'production' ? JWT_SECRET : 'clave-secreta');
   } catch (err) {
-    return res.status(401).send({ message: 'Token no válido' });
+    return res.status(403).send({ message: 'Token no válido' });
   }
 
   req.user = payload;
