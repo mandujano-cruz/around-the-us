@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import Header from "./Header/Header.jsx"
 import Main from "./Main/Main.jsx"
 import Footer from "./Footer/Footer.jsx"
@@ -21,6 +21,7 @@ export default function App() {
   const [isTooltipOpen, setIsTooltipOpen] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [tooltipMessage, setTooltipMessage] = useState("");
+  const [token, setToken] = useState('');
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -34,16 +35,17 @@ export default function App() {
 
   useEffect(() => {
     const token = getToken();
-    if (!token) {
-      return;
-    }
+    if (!token) return;
     auth.getUserInfo(token)
       .then(({data}) => {
         setIsLoggedIn(true);
         setUserData({email: data.email});
       })
-      .catch(console.error);
-  }, [isLoggedIn]);
+      .catch((err) => {
+        console.error(err);
+        setIsLoggedIn(false);
+      });
+  }, []);
 
   useEffect(() => {
     api.getInitialCards("cards/")
@@ -151,8 +153,9 @@ export default function App() {
     auth.authorize(email, password)
       .then((data) => {
         if(data.token) {
+          localStorage.setItem("jwt", data.token);
           setToken(data.token);
-          setUserData(data.email);
+          setUserData({ email });
           setIsLoggedIn(true);
           const redirectPath = location.state?.from?.pathname || "/";
           navigate(redirectPath);
