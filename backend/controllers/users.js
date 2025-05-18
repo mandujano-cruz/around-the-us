@@ -40,6 +40,24 @@ module.exports.getUsers = (req, res) => {
     });
 };
 
+module.exports.getCurrentUser = (req, res) => {
+  User.findById(req.user._id)
+    .orFail(() => {
+      const error = new Error('ID de usuario no encontrado');
+      error.statusCode = 404;
+      throw error;
+    })
+    .then(user => {
+      res.status(200).send(user);
+    })
+    .catch((err) => {
+      console.log(err.name)
+      if (err.name === 'ValidationError') return res.status(400).send({ message: 'Los datos proporcionados no son válidos' });
+      if(err.statusCode === 404) return res.status(404).send({ message: err.message });
+      res.status(500).send({ message: 'Ha ocurrido un error en el servidor' });
+    });
+}
+
 module.exports.getUserById = (req, res) => {
   User.findById(req.params.userId)
     .orFail(() => {
