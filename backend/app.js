@@ -5,6 +5,7 @@ const cardsRouter = require('./routes/cards');
 const { login, createUser } = require('./controllers/users');
 const auth = require('./middleware/auth');
 const errorHandler = require('./middleware/errorHandler');
+const { errors } = require('celebrate');
 require('dotenv').config();
 
 const app = express();
@@ -16,6 +17,7 @@ mongoose.connect('mongodb://localhost:27017/arounddb', {
 });
 
 app.use(express.json());
+app.use(errors());
 
 app.get('/', (req, res) => {
   res.send('Servidor funcionando');
