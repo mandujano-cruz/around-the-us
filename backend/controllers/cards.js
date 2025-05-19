@@ -1,80 +1,48 @@
 const Card = require('../models/card');
 
-module.exports.getCards = (req, res) => {
+module.exports.getCards = (req, res, next) => {
   Card.find({})
-    .then(cards => {
-      if(!cards) {
-        const error = new Error('Tarjetas no encontradas');
-        error.statusCode = 404;
-        throw error;
-      }
-      res.status(200).send(cards)
-    })
-    .catch((err) => {
-      if(err.name === 'ValidationError') return res.status(400).send({ message: 'Los datos proporcionados no son válidos' });
-      if(err.statusCode === 404) return res.status(404).send({ message: err.message });
-
-      res.status(500).send({ message: 'Ha ocurrido un error en el servidor' });
-    });
+    .then(cards => res.status(200).send(cards))
+    .catch(next);
 };
 
-module.exports.createCard = (req, res) => {
+module.exports.createCard = (req, res, next) => {
   const { name, link } = req.body;
 
   Card.create({ name, link, owner: req.user._id })
     .then(card => res.status(201).send(card))
-    .catch((err) => {
-      if(err.name === 'ValidationError') return res.status(400).send({ message: 'Los datos proporcionados no son válidos' });
-
-      res.status(500).send({ message: 'Ha ocurrido un error en el servidor' });
-    });
+    .catch(next);
 };
 
-module.exports.deleteCard = (req, res) => {
+module.exports.deleteCard = (req, res, next) => {
   Card.findByIdAndDelete(req.params.cardId)
     .orFail(() => {
       const error = new Error ('Tarjeta no encontrada');
       error.statusCode = 404;
       throw error;
     })
-    .then(card => {
-      res.status(200).send(card);
-    })
-    .catch((err) => {
-      if(err.statusCode === 404) return res.status(404).send({ message: err.message });
-
-      res.status(500).send({ message: 'Ha ocurrido un error en el servidor' });
-    });
+    .then(card => res.status(200).send(card))
+    .catch(next);
 };
 
-module.exports.likeCard = (req, res) => {
+module.exports.likeCard = (req, res, next) => {
   Card.findByIdAndUpdate(req.params.cardId, { $addToSet: { likes: req.user._id } }, { new: true })
     .orFail(() => {
       const error = new Error('Tarjeta no encontrada');
       error.statusCode = 404;
       throw error;
     })
-    .then(card => {
-      res.status(200).send(card);
-    })
-    .catch((err) => {
-      if(err.statusCode === 404) return res.status(404).send({ message: err.message });
-      res.status(500).send({ message: 'Ha ocurrido un error en el servidor' });
-    });
+    .then(card => res.status(200).send(card))
+    .catch(next);
 };
 
-module.exports.dislikeCard = (req, res) => {
+module.exports.dislikeCard = (req, res, next) => {
   Card.findByIdAndUpdate(req.params.cardId, { $pull: { likes: req.user._id } },{ new: true })
     .orFail(() => {
       const error = new Error('Tarjeta no encontrada');
       error.statusCode = 404;
       throw error;
     })
-    .then(card => {
-      res.status(200).send(card);
-    })
-    .catch((err) => {
-      if(err.statusCode === 404) return res.status(404).send({ message: err.message });
-      res.status(500).send({ message: 'Ha ocurrido un error en el servidor' });
-    });
+    .then(card => res.status(200).send(card))
+    .catch(next);
 };
