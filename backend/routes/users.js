@@ -11,7 +11,7 @@ const {
   validateUserIdParam,
   validateUpdateProfile,
   validateUpdateAvatar,
-} = require('../middlewares/validators');
+} = require('../middleware/validators');
 
 router.get('/', getUsers);
 router.get('/me', getCurrentUser);
