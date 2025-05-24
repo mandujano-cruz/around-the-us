@@ -4,7 +4,7 @@ const usersRouter = require('./routes/users');
 const cardsRouter = require('./routes/cards');
 const { login, createUser } = require('./controllers/users');
 const auth = require('./middleware/auth');
-const errorHandler = require('./middleware/errorHandler');
+const {errorHandler} = require('./middleware/errorHandler');
 const { requestLogger, errorLogger } = require('./middleware/logger');
 const { errors } = require('celebrate');
 require('dotenv').config();
