@@ -10,7 +10,7 @@ const {
 const {
   validateCreateCard,
   validateCardIdParam,
-} = require('../middlewares/validators');
+} = require('../middleware/validators');
 
 router.get('/', getCards);
 router.post('/', validateCreateCard, createCard);
