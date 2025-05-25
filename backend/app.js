@@ -41,23 +41,9 @@ app.use((req, res) => {
   res.status(404).send({message: "Recurso solicitado no encontrado"})
 });
 
-// Mostrar todas las rutas activas en Express
-app._router.stack.forEach(function(r) {
-  if (r.route && r.route.path) {
-    console.log(`Ruta montada: [${Object.keys(r.route.methods).join(', ').toUpperCase()}] ${r.route.path}`);
-  } else if (r.name === 'router' && r.handle.stack) {
-    r.handle.stack.forEach(function(handler) {
-      if (handler.route && handler.route.path) {
-        console.log(`Ruta montada: [${Object.keys(handler.route.methods).join(', ').toUpperCase()}] ${handler.route.path}`);
-      }
-    });
-  }
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Servidor corriendo en http://0.0.0.0:${PORT}`);
 });
-
-
-// app.listen(PORT, '0.0.0.0', () => {
-//   console.log(`Servidor corriendo en http://0.0.0.0:${PORT}`);
-// });
 
 app.use(errors());
 app.use(errorLogger);
