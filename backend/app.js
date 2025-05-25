@@ -10,11 +10,12 @@ const { errors } = require('celebrate');
 require('dotenv').config();
 var cors = require('cors');
 
-app.use(cors());
-app.options('*', cors());
 
 const app = express();
 const { NODE_ENV, JWT_SECRET, PORT=3000 } = process.env;
+
+app.use(cors());
+app.options('*', cors());
 
 mongoose.connect('mongodb://localhost:27017/arounddb', {
   useNewUrlParser: true,
