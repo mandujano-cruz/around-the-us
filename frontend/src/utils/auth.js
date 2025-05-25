@@ -1,4 +1,4 @@
-export const BASE_URL = "https://aroundtheusapro.mooo.com/api";
+export const BASE_URL = "https://aroundtheusapro.mooo.com/";
 
 export const register = (email, password) => {
     return fetch(`${BASE_URL}/signup`, {
