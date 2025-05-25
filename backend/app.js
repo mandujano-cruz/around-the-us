@@ -22,9 +22,8 @@ mongoose.connect('mongodb://localhost:27017/arounddb', {
   useUnifiedTopology: true
 });
 
-app.use(express.json());
-app.use(errors());
 app.use(requestLogger);
+app.use(express.json());
 
 app.get('/', (req, res) => {
   res.send('Servidor funcionando');
@@ -46,5 +45,6 @@ app.listen(PORT, '0.0.0.0', () => {
   console.log(`Servidor corriendo en http://0.0.0.0:${PORT}`);
 });
 
-app.use(errorHandler);
+app.use(errors());
 app.use(errorLogger);
+app.use(errorHandler);
