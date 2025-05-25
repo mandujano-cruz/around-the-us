@@ -21,14 +21,14 @@ export default function App() {
   const [isTooltipOpen, setIsTooltipOpen] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [tooltipMessage, setTooltipMessage] = useState("");
-  const [token, setToken] = useState('');
+  // const [token, setToken] = useState('');
   const navigate = useNavigate();
   const location = useLocation();
 
   const api = new Api({
-    baseUrl: "https://around-api.es.tripleten-services.com/v1/",
+    baseUrl: "/api",
     headers: {
-      authorization: "f79f57e0-6adb-472c-835e-8925770b15f2",
+      authorization: "Bearer ${getToken()}",
       "Content-Type": "application/json"
     }
   });
@@ -153,7 +153,7 @@ export default function App() {
     auth.authorize(email, password)
       .then((data) => {
         if(data.token) {
-          localStorage.setItem("jwt", data.token);
+          // localStorage.setItem("jwt", data.token);
           setToken(data.token);
           setUserData({ email });
           setIsLoggedIn(true);
