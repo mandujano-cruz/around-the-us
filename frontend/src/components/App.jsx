@@ -26,7 +26,7 @@ export default function App() {
   const location = useLocation();
 
   const api = new Api({
-    baseUrl: "https://aroundtheusapro.mooo.com/api/",
+    baseUrl: "https://aroundtheusapro.mooo.com",
     headers: {
       authorization: `Bearer ${getToken()}`,
       "Content-Type": "application/json"
