@@ -8,6 +8,10 @@ const {errorHandler} = require('./middleware/errorHandler');
 const { requestLogger, errorLogger } = require('./middleware/logger');
 const { errors } = require('celebrate');
 require('dotenv').config();
+var cors = require('cors');
+
+app.use(cors());
+app.options('*', cors());
 
 const app = express();
 const { NODE_ENV, JWT_SECRET, PORT=3000 } = process.env;
