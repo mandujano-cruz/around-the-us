@@ -14,15 +14,15 @@ var cors = require('cors');
 const app = express();
 const { NODE_ENV, JWT_SECRET, PORT=3000 } = process.env;
 
-app.use(cors());
 
 mongoose.connect('mongodb://localhost:27017/arounddb', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
 
-app.use(requestLogger);
+app.use(cors());
 app.use(express.json());
+app.use(requestLogger);
 
 app.get('/', (req, res) => {
   res.send('Servidor funcionando');
