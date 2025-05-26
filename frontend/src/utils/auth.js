@@ -1,5 +1,5 @@
 export const BASE_URL = "https://aroundtheusapro.mooo.com";
-export const BASE_URL_API = "https://aroundtheusapro.mooo.com/api";
+export const BASE_URL_API = "https://aroundtheusapro.mooo.com/api/";
 
 export const register = (email, password) => {
     return fetch(`${BASE_URL}/signup`, {
