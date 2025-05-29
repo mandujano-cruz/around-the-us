@@ -28,7 +28,7 @@ export default function App() {
   const api = new Api({
     baseUrl: "https://aroundtheusapro.mooo.com/api/",
     headers: {
-      // authorization: `Bearer ${getToken()}`,
+      authorization: `Bearer ${getToken()}`,
       "Content-Type": "application/json"
     }
   });
