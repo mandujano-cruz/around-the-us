@@ -1,4 +1,4 @@
-export const BASE_URL = "https://aroundtheusapro.mooo.com/api";
+export const BASE_URL = "https://aroundtheusapro.mooo.com";
 // export const BASE_URL_API = "https://aroundtheusapro.mooo.com/api/";
 
 export const register = (email, password) => {
@@ -28,7 +28,7 @@ export const authorize = (email, password) => {
 }
 
 export const getUserInfo = (token) => {
-    return fetch(`${BASE_URL}/users/me`, {
+    return fetch(`${BASE_URL}/api/users/me`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
