@@ -8,7 +8,7 @@ const {errorHandler} = require('./middleware/errorHandler');
 const { requestLogger, errorLogger } = require('./middleware/logger');
 const { errors } = require('celebrate');
 require('dotenv').config();
-var cors = require('cors');
+const cors = require('cors');
 
 
 const app = express();
@@ -28,13 +28,13 @@ app.get('/', (req, res) => {
   res.send('Servidor funcionando');
 });
 
-app.post('/signin', login);
-app.post('/signup', createUser);
+app.post('/api/signin', login);
+app.post('/api/signup', createUser);
 
-app.use(auth);
+app.use('/api', auth);
 
-app.use('/users', usersRouter);
-app.use('/cards', cardsRouter);
+app.use('/api/users', usersRouter);
+app.use('/api/cards', cardsRouter);
 
 app.use((req, res) => {
   res.status(404).send({message: "Recurso solicitado no encontrado"})
