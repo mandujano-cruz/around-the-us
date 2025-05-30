@@ -38,7 +38,6 @@ const userSchema = new mongoose.Schema({
     required: true,
     select: false,
     minlength: 6,
-    maxlength: 16,
   },
 });
 
