@@ -17,7 +17,7 @@ module.exports.login = (req, res, next) => {
       );
       res.send({ token });
     })
-    .catch(next(err));
+    .catch((err) => next(err));
 };
 
 module.exports.getUsers = (req, res, next) => {
@@ -68,7 +68,7 @@ module.exports.createUser = (req, res, next) => {
       about: user.about,
       avatar: user.avatar
     }))
-    .catch(next(err));
+    .catch((err) => next(err));
 };
 
 module.exports.updateProfile = (req, res, next) => {
