@@ -51,8 +51,6 @@ module.exports.getUserById = (req, res, next) => {
 module.exports.createUser = (req, res, next) => {
   const { email, password, name, about, avatar } = req.body;
 
-  console.log('Password hasheado:', hash); // <-- LOG
-
   bcrypt.hash(password, SALT)
     .then((hash) => {
       return User.create({
@@ -63,18 +61,14 @@ module.exports.createUser = (req, res, next) => {
         avatar,
       });
     })
-    .then((user) =>  {
-      res.status(201).send({
+    .then((user) => res.status(201).send({
       _id: user._id,
       email: user.email,
       name: user.name,
       about: user.about,
       avatar: user.avatar
-    });
-  })
-    .catch((err) => {
-      console.error('Error al crear usuario:', err); // <-- LOG del error
-    });
+    }))
+    .catch(next);
 };
 
 module.exports.updateProfile = (req, res, next) => {

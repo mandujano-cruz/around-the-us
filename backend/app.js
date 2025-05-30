@@ -15,7 +15,7 @@ const app = express();
 const { NODE_ENV, JWT_SECRET, PORT=3000 } = process.env;
 
 
-mongoose.connect('mongodb://localhost:27017/arounddb', {
+mongoose.connect('mongodb+srv://jesusmandujanocruz:gvLBe0rvD1drtSPP@cluster0.4uckmxh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
