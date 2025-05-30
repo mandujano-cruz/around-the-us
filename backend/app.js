@@ -28,10 +28,20 @@ app.get('/', (req, res) => {
   res.send('Servidor funcionando');
 });
 
-app.post('/api/signin', login);
-app.post('/api/signup', createUser);
+app.post('/signin', login);
+app.post('/signup', createUser);
+
+app.use('/api', (req, res, next) => {
+  console.log('Request to /api:', req.method, req.path);
+  next();
+});
 
 app.use('/api', auth);
+
+app.use('/api', (req, res, next) => {
+  console.log('After auth middleware:', req.method, req.path);
+  next();
+});
 
 app.use('/api/users', usersRouter);
 app.use('/api/cards', cardsRouter);
