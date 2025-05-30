@@ -20,7 +20,7 @@ mongoose.connect('mongodb://localhost:27017/arounddb', {
   useUnifiedTopology: true
 });
 
-// app.use(cors());
+app.use(cors());
 app.use(express.json());
 app.use(requestLogger);
 
