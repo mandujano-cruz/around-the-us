@@ -12,10 +12,10 @@ const cors = require('cors');
 
 
 const app = express();
-const { NODE_ENV, JWT_SECRET, PORT=3000 } = process.env;
+const { NODE_ENV, JWT_SECRET, MONGO_URI, PORT=3000 } = process.env;
 
 
-mongoose.connect('mongodb+srv://jesusmandujanocruz:gvLBe0rvD1drtSPP@cluster0.4uckmxh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
+mongoose.connect(MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
