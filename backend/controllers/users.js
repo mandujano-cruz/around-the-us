@@ -51,6 +51,9 @@ module.exports.getUserById = (req, res, next) => {
 module.exports.createUser = (req, res, next) => {
   const { email, password, name, about, avatar } = req.body;
 
+  console.log('Solicitud recibida en createUser');
+  console.log('Body:', req.body);
+
   bcrypt.hash(password, SALT)
     .then((hash) => {
       return User.create({
