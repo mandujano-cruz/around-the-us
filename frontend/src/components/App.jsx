@@ -37,7 +37,7 @@ export default function App() {
     const token = getToken();
     if (!token) return;
     auth.getUserInfo(token)
-      .then(({data}) => {
+      .then((data) => {
         setIsLoggedIn(true);
         setUserData({email: data.email});
       })
