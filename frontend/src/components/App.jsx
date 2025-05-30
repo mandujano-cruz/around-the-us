@@ -118,8 +118,8 @@ export default function App() {
   }
 
   async function handleCardLike(card) {
-    console.log(card.likes);
-    const isLiked = card.likes;
+    console.log(card.isLiked);
+    const isLiked = card.isLiked;
     await api.toggleLike("cards/", card._id, !isLiked)
       .then((newCard) => {
         setCards((state) => state.map((currentCard) => currentCard._id === card._id ? newCard : currentCard));
