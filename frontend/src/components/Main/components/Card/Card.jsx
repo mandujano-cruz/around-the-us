@@ -1,12 +1,13 @@
 import CurrentUserContext from "../../../../contexts/CurrentUserContext";
 
 export default function Card (props) {
+    const {currentUser} = useContext(CurrentUserContext);
     const {name, link, likes} = props.card;
     const {onImageClick, onCardLike, onCardDelete} = props;
+    const isLiked = likes.some((userId) => userId === currentUser._id);
     const cardLikeButtonClassName = `card__like ${
-        likes ? 'card__like_active' : ''
+        isLiked ? 'card__like_active' : ''
     }`;
-    // const {currentUser} = useContext(CurrentUserContext);
 
     function handleLikeClick () {
         onCardLike(props.card);
