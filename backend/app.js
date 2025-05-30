@@ -31,20 +31,10 @@ app.get('/', (req, res) => {
 app.post('/signin', login);
 app.post('/signup', createUser);
 
-app.use('/api', (req, res, next) => {
-  console.log('Request to /api:', req.method, req.path);
-  next();
-});
+app.use('/', auth);
 
-app.use('/api', auth);
-
-app.use('/api', (req, res, next) => {
-  console.log('After auth middleware:', req.method, req.path);
-  next();
-});
-
-app.use('/api/users', usersRouter);
-app.use('/api/cards', cardsRouter);
+app.use('/users', usersRouter);
+app.use('/cards', cardsRouter);
 
 app.use((req, res) => {
   res.status(404).send({message: "Recurso solicitado no encontrado"})
