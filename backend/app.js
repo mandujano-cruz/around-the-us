@@ -18,7 +18,9 @@ const { NODE_ENV, JWT_SECRET, PORT=3000 } = process.env;
 mongoose.connect('mongodb://localhost:27017/arounddb', {
   useNewUrlParser: true,
   useUnifiedTopology: true
-});
+})
+  .then(() => console.log('Conexión exitosa'))
+  .catch((err) => console.error('Error al conec'));
 
 app.use(cors());
 app.use(express.json());
