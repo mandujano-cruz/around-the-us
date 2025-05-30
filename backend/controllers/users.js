@@ -51,8 +51,7 @@ module.exports.getUserById = (req, res, next) => {
 module.exports.createUser = (req, res, next) => {
   const { email, password, name, about, avatar } = req.body;
 
-  console.log('Solicitud recibida en createUser');
-  console.log('Body:', req.body);
+  console.log('Password hasheado:', hash); // <-- LOG
 
   bcrypt.hash(password, SALT)
     .then((hash) => {
@@ -64,21 +63,18 @@ module.exports.createUser = (req, res, next) => {
         avatar,
       });
     })
-    .then((user) => res.status(201).send({
+    .then((user) =>  {
+      res.status(201).send({
       _id: user._id,
       email: user.email,
       name: user.name,
       about: user.about,
       avatar: user.avatar
-    }))
-    .catch(next);
-
-  // User.create({ name, about, avatar })
-  //   .then(user => res.status(201).send(user))
-  //   .catch((err) => {
-  //     if (err.name === 'ValidationError') return res.status(400).send({ message: 'Los datos proporcionados no son válidos' });
-  //     res.status(500).send({ message: 'Ha ocurrido un error en el servidor' });
-  //   });
+    });
+  })
+    .catch((err) => {
+      console.error('Error al crear usuario:', err); // <-- LOG del error
+    });
 };
 
 module.exports.updateProfile = (req, res, next) => {
