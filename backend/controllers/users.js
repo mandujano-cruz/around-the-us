@@ -17,13 +17,13 @@ module.exports.login = (req, res, next) => {
       );
       res.send({ token });
     })
-    .catch(next);
+    .catch(next(err));
 };
 
 module.exports.getUsers = (req, res, next) => {
   User.find({})
     .then(users => res.status(200).send(users))
-    .catch(next);
+    .catch(next(err));
 };
 
 module.exports.getCurrentUser = (req, res, next) => {
@@ -34,7 +34,7 @@ module.exports.getCurrentUser = (req, res, next) => {
       throw error;
     })
     .then(user => res.status(200).send(user))
-    .catch(next);
+    .catch(next(err));
 }
 
 module.exports.getUserById = (req, res, next) => {
@@ -45,7 +45,7 @@ module.exports.getUserById = (req, res, next) => {
       throw error;
     })
     .then(user => res.status(200).send(user))
-    .catch(next);
+    .catch(next(err));
 };
 
 module.exports.createUser = (req, res, next) => {
@@ -71,7 +71,7 @@ module.exports.createUser = (req, res, next) => {
       about: user.about,
       avatar: user.avatar
     }))
-    .catch(next);
+    .catch(next(err));
 
   // User.create({ name, about, avatar })
   //   .then(user => res.status(201).send(user))
@@ -91,7 +91,7 @@ module.exports.updateProfile = (req, res, next) => {
       throw error;
     })
     .then(user => res.status(200).send(user))
-    .catch(next);
+    .catch(next(err));
 };
 
 module.exports.updateAvatar = (req, res, next) => {
@@ -104,5 +104,5 @@ module.exports.updateAvatar = (req, res, next) => {
       throw error;
     })
     .then(user => res.status(200).send(user))
-    .catch(next);
+    .catch(next(err));
 };
