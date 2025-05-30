@@ -11,13 +11,6 @@ import CurrentUserContext from "../../contexts/CurrentUserContext.js";
 
 export default function Main (props) {
   const {cards, onCardLike, onCardDelete, onAddPlaceSubmit} = props;
-  const api = new Api({
-    baseUrl: "https://around-api.es.tripleten-services.com/v1/",
-    headers: {
-      authorization: "f79f57e0-6adb-472c-835e-8925770b15f2",
-      "Content-Type": "application/json"
-    }
-  });
   const {currentUser, handleUpdateAvatar} = useContext(CurrentUserContext);
   const [popup, setPopup] = useState(null);
   const newCardPopup = {title: "Nuevo lugar", children: <NewCard onClose={handleClosePopup} onAddPlaceSubmit={onAddPlaceSubmit} />, classPopup: "popup_add"};
