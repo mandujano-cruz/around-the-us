@@ -26,7 +26,7 @@ export default function App() {
   const location = useLocation();
 
   const api = new Api({
-    baseUrl: "https://around-the-us.onrender.com",
+    baseUrl: "https://around-the-us.onrender.com/",
     headers: {
       authorization: `Bearer ${getToken()}`,
       "Content-Type": "application/json"
