@@ -12,7 +12,7 @@ const cors = require('cors');
 
 
 const app = express();
-const { NODE_ENV, JWT_SECRET, MONGO_URI, PORT=3000 } = process.env;
+const { NODE_ENV, JWT_SECRET, MONGO_URI, PORT=10000 } = process.env;
 
 
 mongoose.connect(MONGO_URI, {
