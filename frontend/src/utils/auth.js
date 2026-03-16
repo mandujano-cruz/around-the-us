@@ -1,4 +1,4 @@
-export const BASE_URL = "https://aroundtheusapro.mooo.com/api";
+export const BASE_URL = "https://around-the-us.onrender.com";
 // export const BASE_URL_API = "https://aroundtheusapro.mooo.com/api/";
 
 export const register = (email, password) => {
