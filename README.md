@@ -40,3 +40,9 @@ Para llevar la aplicación al siguiente nivel, se han identificado las siguiente
 * **Feed de Actividad:** Implementación de un sistema de notificaciones para alertar al usuario cuando sus fotos reciben nuevas reacciones.
 
 ---
+
+## 🔗 Demo y Acceso
+Puedes explorar la interfaz y el funcionamiento del proyecto en el siguiente enlace:  
+[**Ver Demo de Around the US**](around-the-us-frontend-82c7.onrender.com)
+
+---
